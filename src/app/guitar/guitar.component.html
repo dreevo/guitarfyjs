@@ -1,0 +1,28 @@
+<div class="guitar">
+  <div>
+    <img [src]="guitar.image" [alt]="guitar.name" class="guitar-image" />
+  </div>
+  <div class="guitar-details">
+    <p class="guitar-details__name">{{ guitar.name }}</p>
+    <p class="guitar-details__price">$ {{ guitar.price }}</p>
+  </div>
+  <div class="guitar-description">
+    <p>{{ guitar.description }}</p>
+  </div>
+  <div class="guitar-actions">
+    <button
+      class="guitar-actions__add"
+      (click)="addToCart(guitar)"
+      *ngIf="!inCart"
+    >
+      <img src="/assets/images/add-to-cart.png" alt="AddToCart" />
+    </button>
+    <button
+      class="guitar-actions__remove"
+      (click)="removeFromCart(guitar)"
+      *ngIf="inCart"
+    >
+      <img src="/assets/images/remove-from-cart.png" alt="RemoveFromCart" />
+    </button>
+  </div>
+</div>
