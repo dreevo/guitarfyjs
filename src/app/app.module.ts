@@ -10,9 +10,11 @@ import { StoreModule } from '@ngrx/store';
 import { ShopReducer } from './store/reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
+import { GuitarComponent } from './guitar/guitar.component';
+import { GuitarsListComponent } from './guitars-list/guitars-list.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, HeaderComponent],
+  declarations: [AppComponent, HomeComponent, HeaderComponent, GuitarComponent, GuitarsListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

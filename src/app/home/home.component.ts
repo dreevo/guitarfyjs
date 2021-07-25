@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Guitar } from '../models/guitar.model';
+import { GetItems } from '../store/actions';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   bannersIndex: number[] = [1, 2, 3, 4];
-  constructor() {}
+  items: Guitar[] = [];
+  constructor(private store: Store<any>) {
+    store.pipe(select('shop')).subscribe((state) => (this.items = state.items));
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.dispatch(new GetItems());
+  }
 }
